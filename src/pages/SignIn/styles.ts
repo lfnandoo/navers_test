@@ -24,18 +24,3 @@ export const Main = styled.main`
 export const Form = styled(Unform)`
   width: 100%;
 `;
-
-export const Button = styled.button`
-  font-size: 14px;
-  font-weight: 600;
-  background-color: var(--color-primary);
-  color: var(--color-text-in-button);
-  border: 0;
-
-  padding: 14px;
-  margin-top: 5px;
-
-  width: 100%;
-
-
-`;

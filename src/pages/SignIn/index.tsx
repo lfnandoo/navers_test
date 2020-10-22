@@ -3,6 +3,7 @@ import React from 'react';
 import { useAuth } from '../../hooks/AuthContext';
 
 import InputBlock from '../../components/InputBlock';
+import BlackButton from '../../components/BlackButton';
 
 import logoImg from '../../assets/logo.svg';
 
@@ -46,7 +47,7 @@ const SignIn: React.FC = () => {
             name="password"
             required
           />
-          <Styles.Button type="submit">Entrar</Styles.Button>
+          <BlackButton type="submit" text="Entrar" width="100%" />
         </Styles.Form>
       </Styles.Main>
     </Styles.Container>
