@@ -18,8 +18,7 @@ export const Main = styled.main`
   border: 1px solid var(--color-input-border);
   padding: 40px 32px;
 
-  width: 30%;
-  height: 50%;
+  width: 448px; 
 `;
 
 export const Form = styled(Unform)`
