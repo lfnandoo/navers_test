@@ -6,6 +6,7 @@ import PrivateRoute from './hooks/PrivateRoute';
 
 import SignIn from './pages/SignIn';
 import Home from './pages/Home';
+import CreateNaver from './pages/CreateNaver';
 
 const Routes: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Routes: React.FC = () => {
         <Switch>
           <Route path="/" exact component={SignIn} />
           <PrivateRoute path="/home" exact component={Home} />
+          <PrivateRoute path="/create" exact component={CreateNaver} />
         </Switch>
       </BrowserRouter>
     </AuthProvider>

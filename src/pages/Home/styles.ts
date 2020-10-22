@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   max-width: 90%;
@@ -47,3 +48,17 @@ export const Actions = styled.div`
   }
 `;
 
+export const NewNaverButton = styled(Link)`
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  background-color: var(--color-primary);
+  color: var(--color-text-in-button);
+  border: 0;
+
+  padding: 14px;
+  margin-top: 5px;
+
+  width: 176px;
+`;

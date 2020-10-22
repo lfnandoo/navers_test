@@ -2,7 +2,6 @@ import React from 'react';
 import api from '../../services/api';
 
 import Header from '../../components/Header';
-import BlackButton from '../../components/BlackButton';
 
 import trashIcon from '../../assets/trash.svg';
 import editIcon from '../../assets/edit.svg';
@@ -36,7 +35,9 @@ const Home: React.FC = () => {
       <Styles.Main>
         <Styles.TopContent>
           <h1>Navers</h1>
-          <BlackButton text="Adicionar Naver" width="176px" />
+          <Styles.NewNaverButton to="/create">
+            Adicionar Naver
+          </Styles.NewNaverButton>
         </Styles.TopContent>
         <Styles.NaversList>
           {navers.map((naver) => {
