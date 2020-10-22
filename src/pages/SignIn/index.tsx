@@ -1,20 +1,30 @@
 import React from 'react';
 
+import { AuthContext } from '../../hooks/AuthContext';
+
 import InputBlock from '../../components/InputBlock';
 
 import logoImg from '../../assets/logo.svg';
 
 import * as Styles from './styles';
 
+interface SignInFormDataProps {
+  email: string;
+  password: string;
+}
+
 const SignIn: React.FC = () => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const { signIn } = React.useContext(AuthContext);
 
   const handleSubmit = React.useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+    async (data: SignInFormDataProps) => {
+      try {
+        await signIn({ email: data.email, password: data.password });
+      } catch (e) {
+        console.log(e);
+      }
     },
-    [],
+    [signIn],
   );
 
   return (
@@ -26,15 +36,15 @@ const SignIn: React.FC = () => {
             placeholder="E-mail"
             type="email"
             label="E-mail"
+            name="email"
             required
-            setState={setPassword}
           />
           <InputBlock
             placeholder="Senha"
             type="password"
             label="Senha"
+            name="password"
             required
-            setState={setEmail}
           />
           <Styles.Button type="submit">Entrar</Styles.Button>
         </Styles.Form>

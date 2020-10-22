@@ -1,31 +1,29 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
+import { useField } from '@unform/core';
 
 import * as Styles from './styles';
 
-interface InputBlockProps {
+interface InputBlockProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  placeholder: string;
-  type: string;
-  required: boolean;
-  setState: React.Dispatch<React.SetStateAction<string>>;
+  name: string;
 }
 
-const InputBlock: React.FC<InputBlockProps> = ({
-  label,
-  setState,
-  ...rest
-}) => {
-  const handleInputValue = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setState(e.target.value);
-    },
-    [setState],
-  );
+const InputBlock: React.FC<InputBlockProps> = ({ label, name, ...rest }) => {
+  const inputRef = React.useRef(null);
+  const { fieldName, registerField } = useField(name);
+
+  React.useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputRef.current,
+      path: 'value',
+    });
+  }, [fieldName, registerField]);
 
   return (
     <Styles.Container>
       <Styles.Label htmlFor={label}>{label}</Styles.Label>
-      <Styles.Input onChange={handleInputValue} id={label} {...rest} />
+      <Styles.Input id={label} {...rest} ref={inputRef} />
     </Styles.Container>
   );
 };

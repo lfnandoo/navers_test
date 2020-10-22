@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Form as Unform } from '@unform/web';
 
 export const Container = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ export const Main = styled.main`
   height: 50%;
 `;
 
-export const Form = styled.form`
+export const Form = styled(Unform)`
   width: 100%;
 `;
 
