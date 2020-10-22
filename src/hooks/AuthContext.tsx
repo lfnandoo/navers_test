@@ -16,7 +16,7 @@ interface ResponseDataProps {
   token: string;
 }
 
-export const AuthContext = React.createContext<AuthContextProps>(
+const AuthContext = React.createContext<AuthContextProps>(
   {} as AuthContextProps,
 );
 
@@ -48,3 +48,13 @@ export const AuthProvider: React.FC = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+export function useAuth(): AuthContextProps {
+  const context = React.useContext(AuthContext);
+
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+
+  return context;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AuthContext } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 
 import InputBlock from '../../components/InputBlock';
 
@@ -14,7 +14,7 @@ interface SignInFormDataProps {
 }
 
 const SignIn: React.FC = () => {
-  const { signIn } = React.useContext(AuthContext);
+  const { signIn } = useAuth();
 
   const handleSubmit = React.useCallback(
     async (data: SignInFormDataProps) => {
