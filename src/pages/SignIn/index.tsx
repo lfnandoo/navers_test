@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/AuthContext';
 
@@ -15,17 +16,19 @@ interface SignInFormDataProps {
 }
 
 const SignIn: React.FC = () => {
+  const history = useHistory();
   const { signIn } = useAuth();
 
   const handleSubmit = React.useCallback(
     async (data: SignInFormDataProps) => {
       try {
         await signIn({ email: data.email, password: data.password });
+        history.push('/home');
       } catch (e) {
         console.log(e);
       }
     },
-    [signIn],
+    [signIn, history],
   );
 
   return (
