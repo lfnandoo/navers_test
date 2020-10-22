@@ -26,6 +26,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     const token = localStorage.getItem('@Navers:token');
 
     if (token) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
       return token;
     }
 
@@ -38,6 +39,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       password,
     });
     const { token } = data;
+
+    api.defaults.headers.authorization = `Bearer ${token}`;
 
     localStorage.setItem('@Navers:token', token);
     setUserToken(token);

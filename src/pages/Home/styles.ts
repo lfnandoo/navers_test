@@ -25,7 +25,6 @@ export const TopContent = styled.div`
 
 export const NaversList = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 `;
 
@@ -36,10 +35,6 @@ export const NaverCard = styled.div`
 
   > h1, h2 {
     margin: 10px 0;
-  }
-
-  &:hover {
-    border: 1px solid var(--color-input-border);
   }
 `;
 
