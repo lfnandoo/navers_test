@@ -9,6 +9,7 @@ interface SignInCredentialsProps {
 
 interface AuthContextProps {
   signIn(credentials: SignInCredentialsProps): Promise<void>;
+  signOut(): void;
   userToken: string;
 }
 
@@ -16,7 +17,7 @@ interface ResponseDataProps {
   token: string;
 }
 
-const AuthContext = React.createContext<AuthContextProps>(
+export const AuthContext = React.createContext<AuthContextProps>(
   {} as AuthContextProps,
 );
 
@@ -42,8 +43,14 @@ export const AuthProvider: React.FC = ({ children }) => {
     setUserToken(token);
   }, []);
 
+  const signOut = React.useCallback(() => {
+    localStorage.clear();
+
+    setUserToken('');
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ signIn, userToken }}>
+    <AuthContext.Provider value={{ signIn, signOut, userToken }}>
       {children}
     </AuthContext.Provider>
   );

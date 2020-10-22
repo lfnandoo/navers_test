@@ -7,11 +7,17 @@ export const Container = styled.header`
   justify-content: space-between;
 `;
 
-export const GoBack = styled(Link)`
-  text-decoration: none;
-  font-weight: 600;
-
+export const Logo = styled(Link)`
   > img {
     width: 135px;
+  }
+`;
+
+export const Logout = styled.span`
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
   }
 `;
