@@ -54,3 +54,33 @@ export const Back = styled(Link)`
 export const Invisible = styled.div`
   visibility: none;
 `;
+
+export const FeedBackContent = styled.div`
+  background-color: var(--color-background);
+
+  width: 54%;
+  height: 25%;
+  
+  padding: 30px;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    height: 60%;
+
+    > h1 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    > img {
+      cursor: pointer;
+    }
+  }
+
+  > span {
+    font-size: 16px;
+  }
+`;
+
+export const GoBack = styled(Link)``;

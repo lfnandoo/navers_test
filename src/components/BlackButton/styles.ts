@@ -11,6 +11,8 @@ export const Button = styled.button<ButtonProps>`
   color: var(--color-text-in-button);
   border: 0;
 
+  cursor: pointer;
+
   padding: 14px;
   margin-top: 5px;
 
