@@ -7,9 +7,11 @@ import trashIcon from '../../assets/trash.svg';
 import editIcon from '../../assets/edit.svg';
 import closeImg from '../../assets/close.svg';
 
-import * as Styles from './styles';
 import FeedBack from '../../components/FeedBack';
 import BlackButton from '../../components/BlackButton';
+import { Redirect } from 'react-router-dom';
+
+import * as Styles from './styles';
 
 interface NaversDataProps {
   admission_date: string;
@@ -22,11 +24,20 @@ interface NaversDataProps {
   user_id: string;
 }
 
+interface OpenModalAndSetCardIdProps {
+  newState: boolean;
+  id: string;
+  setModalOpenState: React.Dispatch<React.SetStateAction<boolean>>;
+  setCardId: React.Dispatch<React.SetStateAction<string>>;
+}
+
 const Home: React.FC = () => {
   const [navers, setNavers] = React.useState<Array<NaversDataProps>>([]);
-  const [modalState, setModalState] = React.useState(false);
-  const [feedbackModal, setFeedbackModal] = React.useState(false);
-  const [cardId, setCardId] = React.useState('');
+  const [modalDelete, setModalDelete] = React.useState(false);
+  const [modalEdit, setModalEdit] = React.useState(false);
+  const [feedbackDeleteModal, setFeedbackDeleteModal] = React.useState(false);
+  const [cardDeleteId, setCardDeleteId] = React.useState('');
+  const [cardEditId, setCardEditId] = React.useState('');
 
   React.useEffect(() => {
     (async () => {
@@ -36,29 +47,35 @@ const Home: React.FC = () => {
   }, []);
 
   const openModalAndSetCardId = React.useCallback(
-    (newState: boolean, id: string) => {
-      setModalState(newState);
+    (newState, id, setModalOpenState, setCardId) => {
+      setModalOpenState(newState);
       setCardId(id);
     },
     [],
   );
 
   const deleteCard = React.useCallback(async () => {
-    console.log(cardId);
     try {
-      await api.delete(`/navers/${cardId}`);
-      openModalAndSetCardId(false, '');
-      setFeedbackModal(true);
+      await api.delete(`/navers/${cardDeleteId}`);
+      openModalAndSetCardId(false, '', setModalDelete, setCardDeleteId);
+      setFeedbackDeleteModal(true);
     } catch (e) {
       console.log(e);
     }
-  }, [cardId]);
+  }, [cardDeleteId]);
 
-  const handleGoBack = React.useCallback(() => setFeedbackModal(false), []);
+  const handleGoBack = React.useCallback(
+    () => setFeedbackDeleteModal(false),
+    [],
+  );
+
+  if (!!cardEditId) {
+    return <Redirect to={`/edit/${cardEditId}`} />;
+  }
 
   return (
     <>
-      <FeedBack isOpen={modalState}>
+      <FeedBack isOpen={modalDelete}>
         <Styles.ExcludeNaver>
           <h1>Excluir Naver</h1>
           <span>Tem certeza que deseja excluir este Naver?</span>
@@ -69,7 +86,14 @@ const Home: React.FC = () => {
               border="1px solid var(--color-primary)"
               color="var(--color-primary)"
               backgroundColor="var(--color-background)"
-              onClick={() => openModalAndSetCardId(false, '')}
+              onClick={() =>
+                openModalAndSetCardId(
+                  false,
+                  '',
+                  setModalDelete,
+                  setCardDeleteId,
+                )
+              }
             />
             <BlackButton
               width="176px"
@@ -80,7 +104,7 @@ const Home: React.FC = () => {
           </div>
         </Styles.ExcludeNaver>
       </FeedBack>
-      <FeedBack isOpen={feedbackModal}>
+      <FeedBack isOpen={feedbackDeleteModal}>
         <Styles.FeedBackContent>
           <div>
             <h1>Naver excluído</h1>
@@ -109,9 +133,27 @@ const Home: React.FC = () => {
                     <img
                       src={trashIcon}
                       alt="Excluir"
-                      onClick={() => openModalAndSetCardId(true, naver.id)}
+                      onClick={() =>
+                        openModalAndSetCardId(
+                          true,
+                          naver.id,
+                          setModalDelete,
+                          setCardDeleteId,
+                        )
+                      }
                     />
-                    <img src={editIcon} alt="Editar" />
+                    <img
+                      src={editIcon}
+                      alt="Editar"
+                      onClick={() =>
+                        openModalAndSetCardId(
+                          true,
+                          naver.id,
+                          setModalEdit,
+                          setCardEditId,
+                        )
+                      }
+                    />
                   </Styles.Actions>
                 </Styles.NaverCard>
               );
