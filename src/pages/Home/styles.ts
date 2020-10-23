@@ -62,3 +62,60 @@ export const NewNaverButton = styled(Link)`
 
   width: 176px;
 `;
+
+export const ExcludeNaver = styled.div`
+  background-color: var(--color-background);
+
+  width: 54%;
+  height: 32%;
+
+  padding: 30px;
+
+  > h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px
+  }
+
+  > span {
+    font-size: 14px;
+  }
+
+  > div {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    
+    > button + button {
+      margin-left: 25px;
+    }
+  }
+`;
+
+export const FeedBackContent = styled.div`
+  background-color: var(--color-background);
+
+  width: 54%;
+  height: 25%;
+  
+  padding: 30px;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    height: 60%;
+
+    > h1 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    > img {
+      cursor: pointer;
+    }
+  }
+
+  > span {
+    font-size: 16px;
+  }
+`;

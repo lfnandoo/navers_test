@@ -15,13 +15,13 @@ const PrivateRoute: React.FC<RouteProps> = ({
   component: Component,
   ...rest
 }) => {
-  const { userToken }: any = useAuth();
+  const { userData } = useAuth();
 
   return (
     <Route
       {...rest}
       render={(routeProps) =>
-        !!userToken ? <Component {...routeProps} /> : <Redirect to="/" />
+        !!userData.token ? <Component {...routeProps} /> : <Redirect to="/" />
       }
     />
   );

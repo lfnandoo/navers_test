@@ -2,14 +2,18 @@ import styled from 'styled-components';
 
 interface ButtonProps {
   widthButton: string;
+  color?: string;
+  border?: string;
+  backgroundColor?: string;
 }
 
 export const Button = styled.button<ButtonProps>`
   font-size: 14px;
   font-weight: 600;
   background-color: var(--color-primary);
-  color: var(--color-text-in-button);
-  border: 0;
+  background-color: ${({backgroundColor}) => !!backgroundColor ? backgroundColor : "var(--color-primary)"};
+  color: ${({color}) => !!color ? color : "var(--color-text-in-button)"};
+  border: ${({border}) => !!border ? border : 0};
 
   cursor: pointer;
 

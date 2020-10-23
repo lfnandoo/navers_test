@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../../services/api';
+import { format, parseISO } from 'date-fns';
 
 import Header from '../../components/Header';
 
@@ -11,8 +12,6 @@ import BlackButton from '../../components/BlackButton';
 import FeedBack from '../../components/FeedBack';
 
 import * as Styles from './styles';
-
-import { format, parseISO } from 'date-fns';
 
 interface FormDataProps {
   job_role: string;

@@ -10,11 +10,12 @@ interface SignInCredentialsProps {
 interface AuthContextProps {
   signIn(credentials: SignInCredentialsProps): Promise<void>;
   signOut(): void;
-  userToken: string;
+  userData: ResponseDataProps;
 }
 
 interface ResponseDataProps {
   token: string;
+  id: string;
 }
 
 export const AuthContext = React.createContext<AuthContextProps>(
@@ -22,15 +23,16 @@ export const AuthContext = React.createContext<AuthContextProps>(
 );
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [userToken, setUserToken] = React.useState(() => {
+  const [userData, setUserData] = React.useState<ResponseDataProps>(() => {
     const token = localStorage.getItem('@Navers:token');
+    const id = localStorage.getItem('@Navers:id');
 
-    if (token) {
+    if (token && id) {
       api.defaults.headers.authorization = `Bearer ${token}`;
-      return token;
+      return { token, id };
     }
 
-    return '';
+    return {} as ResponseDataProps;
   });
 
   const signIn = React.useCallback(async ({ email, password }) => {
@@ -38,22 +40,23 @@ export const AuthProvider: React.FC = ({ children }) => {
       email,
       password,
     });
-    const { token } = data;
+    const { token, id } = data;
 
     api.defaults.headers.authorization = `Bearer ${token}`;
 
     localStorage.setItem('@Navers:token', token);
-    setUserToken(token);
+    localStorage.setItem('@Navers:id', id);
+    setUserData({ token, id });
   }, []);
 
   const signOut = React.useCallback(() => {
     localStorage.clear();
 
-    setUserToken('');
+    setUserData({} as ResponseDataProps);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ signIn, signOut, userToken }}>
+    <AuthContext.Provider value={{ signIn, signOut, userData }}>
       {children}
     </AuthContext.Provider>
   );

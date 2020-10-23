@@ -5,6 +5,9 @@ import * as Styles from './styles';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   width: string;
+  color?: string;
+  border?: string;
+  backgroundColor?: string;
 }
 
 const BlackButton: React.FC<ButtonProps> = ({ text, width, ...rest }) => {
