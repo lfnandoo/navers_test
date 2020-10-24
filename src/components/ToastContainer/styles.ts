@@ -9,6 +9,7 @@ const toastTypeVariations = {
     background: #ebf8ff;
     > button, svg {
       stroke: #3172b7;
+      cursor: pointer;
     }
     > div {
       > strong {
@@ -24,6 +25,7 @@ const toastTypeVariations = {
     background: #e6fffa;
     > button svg, svg {
       stroke: #2e656a;
+      cursor: pointer;
     }
     > div {
       > strong {
@@ -39,6 +41,7 @@ const toastTypeVariations = {
     background: #fddede;
     > button svg, svg {
       stroke: #c53030;
+      cursor: pointer;
     }
     > div {
       > strong {
