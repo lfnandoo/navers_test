@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTransition } from 'react-spring';
 
 import { FiAlertCircle, FiXCircle } from 'react-icons/fi';
 
@@ -12,19 +13,28 @@ interface ToastContainerProps {
 
 const ToastContainer: React.FC<ToastContainerProps> = ({ messages }) => {
   const { removeToast } = useToast();
+  const messagesWithTransitions = useTransition(
+    messages,
+    (message) => message.id,
+    {
+      from: { right: '-120%', opacity: 0 },
+      enter: { right: '0%', opacity: 1 },
+      leave: { right: '-120%', opacity: 0 },
+    },
+  );
 
   return (
     <Styles.Container>
-      {messages.map((message) => (
-        <Styles.Toast key={message.id} type={message.type}>
+      {messagesWithTransitions.map(({ item, key, props }) => (
+        <Styles.Toast key={key} style={props} type={item.type}>
           <FiAlertCircle size={20} />
 
           <div>
-            <strong>{message.title}</strong>
-            <p>{message.description}</p>
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
           </div>
 
-          <button onClick={() => removeToast(message.id)}>
+          <button onClick={() => removeToast(item.id)}>
             <FiXCircle size={18} />
           </button>
         </Styles.Toast>
