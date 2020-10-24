@@ -34,7 +34,7 @@ interface OpenModalAndSetCardIdProps {
 const Home: React.FC = () => {
   const [navers, setNavers] = React.useState<Array<NaversDataProps>>([]);
   const [modalDelete, setModalDelete] = React.useState(false);
-  const [modalEdit, setModalEdit] = React.useState(false);
+  // const [modalEdit, setModalEdit] = React.useState(false);
   const [feedbackDeleteModal, setFeedbackDeleteModal] = React.useState(false);
   const [cardDeleteId, setCardDeleteId] = React.useState('');
   const [cardEditId, setCardEditId] = React.useState('');
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
     } catch (e) {
       console.log(e);
     }
-  }, [cardDeleteId]);
+  }, [cardDeleteId, openModalAndSetCardId]);
 
   const handleGoBack = React.useCallback(
     () => setFeedbackDeleteModal(false),
@@ -146,12 +146,7 @@ const Home: React.FC = () => {
                       src={editIcon}
                       alt="Editar"
                       onClick={() =>
-                        openModalAndSetCardId(
-                          true,
-                          naver.id,
-                          setModalEdit,
-                          setCardEditId,
-                        )
+                        openModalAndSetCardId(true, naver.id, '', setCardEditId)
                       }
                     />
                   </Styles.Actions>
