@@ -17,12 +17,14 @@ interface SignInFormDataProps {
 }
 
 const SignIn: React.FC = () => {
+  const [isLoading, setIsLoading] = React.useState(false);
   const history = useHistory();
   const { signIn } = useAuth();
   const { addToast } = useToast();
 
   const handleSubmit = React.useCallback(
     async (data: SignInFormDataProps) => {
+      setIsLoading(true);
       try {
         await signIn({ email: data.email, password: data.password });
         history.push('/home');
@@ -32,6 +34,7 @@ const SignIn: React.FC = () => {
           title: 'Erro na autenticação',
           description: 'Ocorreu um erro ao fazer login, cheque as credenciais.',
         });
+        setIsLoading(false);
       }
     },
     [signIn, history, addToast],
@@ -56,7 +59,11 @@ const SignIn: React.FC = () => {
             name="password"
             required
           />
-          <BlackButton type="submit" text="Entrar" width="100%" />
+          <BlackButton
+            type="submit"
+            text={isLoading ? 'Autenticando...' : 'Entrar'}
+            width="100%"
+          />
         </Styles.Form>
       </Styles.Main>
     </Styles.Container>
