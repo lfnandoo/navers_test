@@ -27,15 +27,24 @@ export const TopContent = styled.div`
 export const NaversList = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  > div {
+    margin: 0 auto;
+  }
 `;
 
 export const NaverCard = styled.div`
-  margin: 10px;
+  margin: 10px !important;
 
   cursor: pointer;
 
   > h1, h2 {
     margin: 10px 0;
+  }
+
+  > div:first-child {
+    width: 280px;
+    height: 280px;
   }
 `;
 

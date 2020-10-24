@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 export const GlobalStyles = createGlobalStyle`
   :root {
     --color-background: #FFF;
