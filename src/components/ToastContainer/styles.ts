@@ -7,44 +7,48 @@ interface ToastProps {
 const toastTypeVariations = {
   info: css`
     background: #ebf8ff;
+    > button, svg {
+      stroke: #3172b7;
+    }
     > div {
-      svg {
+      > strong {
+        font-weight: 600;
         color: #3172b7;
       }
-      > div {
-        > p, button {
-      color: #3172b7;
-        }
+      > p {
+        color: #3172b7;
       }
     }
   `,
   success: css`
     background: #e6fffa;
+    > button svg, svg {
+      stroke: #2e656a;
+    }
     > div {
-      svg {
+      > strong {
+        font-weight: 600;
         color: #2e656a;
       }
-      > div {
-        > p, button {
-          color: #2e656a;
-        }
+      > p {
+        color: #2e656a;
       }
     }
   `,
   error: css`
     background: #fddede;
+    > button svg, svg {
+      stroke: #c53030;
+    }
     > div {
-      svg {
+      > strong {
+        font-weight: 600;
         color: #c53030;
       }
-      > div {
-        > p, button {
+      > p {
         color: #c53030;
-        }
       }
     }
-    color: #c53030;
-
   `
 }
 
