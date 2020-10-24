@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/AuthContext';
+import { useToast } from '../../hooks/ToastContext';
 
 import InputBlock from '../../components/InputBlock';
 import BlackButton from '../../components/BlackButton';
@@ -18,6 +19,7 @@ interface SignInFormDataProps {
 const SignIn: React.FC = () => {
   const history = useHistory();
   const { signIn } = useAuth();
+  const { addToast } = useToast();
 
   const handleSubmit = React.useCallback(
     async (data: SignInFormDataProps) => {
@@ -25,10 +27,15 @@ const SignIn: React.FC = () => {
         await signIn({ email: data.email, password: data.password });
         history.push('/home');
       } catch (e) {
-        console.log(e);
+        addToast({
+          type: 'error',
+          title: 'Erro na autenticação',
+          description:
+            'Occorreu um erro ao fazer login, cheque as credenciais.',
+        });
       }
     },
-    [signIn, history],
+    [signIn, history, addToast],
   );
 
   return (
