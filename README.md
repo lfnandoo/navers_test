@@ -13,6 +13,8 @@
 
 <br>
 
+user: "testing-user@nave.rs" and "nave1234" as password. 
+
 ## :rocket: Technologies
 
 Project made with:
