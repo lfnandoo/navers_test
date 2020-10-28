@@ -2,7 +2,7 @@
   🚀 Navers - React and Typescript
 </h4>
 <h4 align="center">
- 🔥 <a href="">Demo</a>
+ 🔥 <a href="navers-test-lfnandoo.vercel.app">Demo</a>
 </h4>
 
 <p align="center">
@@ -23,6 +23,7 @@ Project made with:
 - Typescript
 - Axios
 - Styled Components
+- Context API
 
 ## 📌 Run
 
