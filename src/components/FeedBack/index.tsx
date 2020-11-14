@@ -8,7 +8,7 @@ interface FeedBackProps {
 
 const FeedBack: React.FC<FeedBackProps> = ({ isOpen, children }) => {
   if (isOpen) {
-    return <Styles.FeedBack>{children}</Styles.FeedBack>;
+    return <Styles.FeedBack data-cy="modal">{children}</Styles.FeedBack>;
   }
 
   return <></>;
