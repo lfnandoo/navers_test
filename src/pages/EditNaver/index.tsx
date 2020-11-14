@@ -153,7 +153,7 @@ const EditNaver: React.FC = () => {
               defaultValue={naverData.url}
             />
             <Styles.Invisible />
-            <BlackButton width="176px" text="Salvar" />
+            <BlackButton data-cy="edit" width="176px" text="Editar" />
           </Styles.Form>
         </Styles.Main>
       </Styles.Container>
