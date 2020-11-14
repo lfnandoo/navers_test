@@ -75,6 +75,7 @@ const CreateNaver: React.FC = () => {
               type="text"
               label="Nome"
               name="name"
+              data-cy="name"
               required
             />
             <InputBlock
@@ -82,6 +83,7 @@ const CreateNaver: React.FC = () => {
               type="text"
               label="Cargo"
               name="job_role"
+              data-cy="job_role"
               required
             />
             <InputBlock
@@ -89,6 +91,7 @@ const CreateNaver: React.FC = () => {
               type="date"
               label="Nascimento"
               name="birthdate"
+              data-cy="birthdate"
               required
             />
             <InputBlock
@@ -96,6 +99,7 @@ const CreateNaver: React.FC = () => {
               type="date"
               label="Tempo de empresa"
               name="admission_date"
+              data-cy="admission_date"
               required
             />
             <InputBlock
@@ -103,6 +107,7 @@ const CreateNaver: React.FC = () => {
               type="text"
               label="Projetos que participou"
               name="project"
+              data-cy="project"
               required
             />
             <InputBlock
@@ -110,6 +115,7 @@ const CreateNaver: React.FC = () => {
               type="url"
               label="URL da foto do Naver"
               name="url"
+              data-cy="url"
               required
             />
             <Styles.Invisible />
