@@ -10,7 +10,6 @@ import BlackButton from '../../components/BlackButton';
 import logoImg from '../../assets/logo.svg';
 
 import * as Styles from './styles';
-
 interface SignInFormDataProps {
   email: string;
   password: string;
@@ -50,6 +49,7 @@ const SignIn: React.FC = () => {
             type="email"
             label="E-mail"
             name="email"
+            data-cy="email"
             required
           />
           <InputBlock
@@ -57,10 +57,12 @@ const SignIn: React.FC = () => {
             type="password"
             label="Senha"
             name="password"
+            data-cy="password"
             required
           />
           <BlackButton
             type="submit"
+            data-cy="submit"
             text={isLoading ? 'Autenticando...' : 'Entrar'}
             width="100%"
           />
