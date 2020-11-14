@@ -119,7 +119,7 @@ const CreateNaver: React.FC = () => {
               required
             />
             <Styles.Invisible />
-            <BlackButton data-cy="create" width="176px" text="Salvar" />
+            <BlackButton data-cy="submit" width="176px" text="Salvar" />
           </Styles.Form>
         </Styles.Main>
       </Styles.Container>
