@@ -21,7 +21,9 @@ const Header: React.FC = () => {
       <Styles.Logo to="/home">
         <img src={logoImg} alt="nave.rs" />
       </Styles.Logo>
-      <Styles.Logout onClick={handleLogout}>Sair</Styles.Logout>
+      <Styles.Logout data-cy="leave" onClick={handleLogout}>
+        Sair
+      </Styles.Logout>
     </Styles.Container>
   );
 };
