@@ -116,7 +116,7 @@ const Home: React.FC = () => {
         <Styles.Main>
           <Styles.TopContent>
             <h1>Navers</h1>
-            <Styles.NewNaverButton to="/create">
+            <Styles.NewNaverButton data-cy="add-naver" to="/create">
               Adicionar Naver
             </Styles.NewNaverButton>
           </Styles.TopContent>
