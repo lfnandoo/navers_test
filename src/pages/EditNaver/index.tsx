@@ -97,6 +97,7 @@ const EditNaver: React.FC = () => {
               type="text"
               label="Nome"
               name="name"
+              data-cy="name"
               required
               defaultValue={naverData.name}
             />
@@ -105,6 +106,7 @@ const EditNaver: React.FC = () => {
               type="text"
               label="Cargo"
               name="job_role"
+              data-cy="job_role"
               required
               defaultValue={naverData.job_role}
             />
@@ -113,6 +115,7 @@ const EditNaver: React.FC = () => {
               type="date"
               label="Nascimento"
               name="birthdate"
+              data-cy="birthdate"
               required
               defaultValue={format(
                 parseISO(naverData.birthdate),
@@ -124,6 +127,7 @@ const EditNaver: React.FC = () => {
               type="date"
               label="Tempo de empresa"
               name="admission_date"
+              data-cy="admission_date"
               required
               defaultValue={format(
                 parseISO(naverData.admission_date),
@@ -135,6 +139,7 @@ const EditNaver: React.FC = () => {
               type="text"
               label="Projetos que participou"
               name="project"
+              data-cy="project"
               required
               defaultValue={naverData.project}
             />
@@ -143,6 +148,7 @@ const EditNaver: React.FC = () => {
               type="url"
               label="URL da foto do Naver"
               name="url"
+              data-cy="url"
               required
               defaultValue={naverData.url}
             />
