@@ -70,7 +70,11 @@ const CreateNaver: React.FC = () => {
           <Styles.Form onSubmit={handleSubmit}>
             <Styles.TopContent>
               <Styles.GoBack to="/home">
-                <img src={arrowBackImg} alt="Voltar para home" />
+                <img
+                  src={arrowBackImg}
+                  alt="Voltar para home"
+                  data-cy="go-back-home"
+                />
               </Styles.GoBack>
               <h1>Adicionar Naver</h1>
             </Styles.TopContent>
