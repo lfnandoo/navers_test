@@ -92,7 +92,11 @@ const EditNaver: React.FC = () => {
           <Styles.Form onSubmit={handleSubmit}>
             <Styles.TopContent>
               <Styles.GoBack to="/home">
-                <img src={arrowBackImg} alt="Voltar para home" />
+                <img
+                  src={arrowBackImg}
+                  alt="Voltar para home"
+                  data-cy="go-back-home"
+                />
               </Styles.GoBack>
               <h1>Editar Naver</h1>
             </Styles.TopContent>
