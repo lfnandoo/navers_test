@@ -81,6 +81,7 @@ const Home: React.FC = () => {
             <BlackButton
               width="176px"
               text="Cancelar"
+              data-cy="cancel-delete"
               border="1px solid var(--color-primary)"
               color="var(--color-primary)"
               backgroundColor="var(--color-background)"
@@ -96,6 +97,7 @@ const Home: React.FC = () => {
             <BlackButton
               width="176px"
               text="Excluir"
+              data-cy="delete"
               onClick={deleteCard}
               border="1px solid var(--color-primary)"
             />
@@ -106,7 +108,12 @@ const Home: React.FC = () => {
         <Styles.FeedBackContent>
           <div>
             <h1>Naver excluído</h1>
-            <img src={closeImg} alt="Voltar" onClick={handleGoBack} />
+            <img
+              src={closeImg}
+              alt="Voltar"
+              data-cy="go-back"
+              onClick={handleGoBack}
+            />
           </div>
           <span>Naver excluido com sucesso!</span>
         </Styles.FeedBackContent>
