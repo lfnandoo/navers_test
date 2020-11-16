@@ -52,7 +52,12 @@ const CreateNaver: React.FC = () => {
         <Styles.FeedBackContent>
           <div>
             <h1>Naver criado</h1>
-            <img src={closeImg} alt="Voltar" onClick={handleGoBack} />
+            <img
+              src={closeImg}
+              data-cy="go-back"
+              alt="Voltar"
+              onClick={handleGoBack}
+            />
           </div>
           <span>Naver criado com sucesso!</span>
         </Styles.FeedBackContent>
