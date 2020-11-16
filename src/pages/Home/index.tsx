@@ -138,7 +138,7 @@ const Home: React.FC = () => {
             )}
             {navers.map((naver) => {
               return (
-                <Styles.NaverCard key={naver.id}>
+                <Styles.NaverCard key={naver.id} data-cy={naver.id}>
                   <div>
                     <img src={naver.url} alt={naver.name} />
                   </div>
