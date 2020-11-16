@@ -75,7 +75,12 @@ const EditNaver: React.FC = () => {
         <Styles.FeedBackContent>
           <div>
             <h1>Naver editado</h1>
-            <img src={closeImg} alt="Voltar" onClick={handleGoBack} />
+            <img
+              src={closeImg}
+              data-cy="go-back"
+              alt="Voltar"
+              onClick={handleGoBack}
+            />
           </div>
           <span>Naver editado com sucesso!</span>
         </Styles.FeedBackContent>
