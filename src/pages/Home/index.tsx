@@ -148,6 +148,7 @@ const Home: React.FC = () => {
                     <img
                       src={trashIcon}
                       alt="Excluir"
+                      data-cy="delete-card"
                       onClick={() =>
                         openModalAndSetCardId(
                           true,
