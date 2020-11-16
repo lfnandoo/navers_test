@@ -160,6 +160,7 @@ const Home: React.FC = () => {
                     <img
                       src={editIcon}
                       alt="Editar"
+                      data-cy="edit-card"
                       onClick={() => setCardEditId(naver.id)}
                     />
                   </Styles.Actions>
