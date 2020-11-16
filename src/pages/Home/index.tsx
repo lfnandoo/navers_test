@@ -138,7 +138,7 @@ const Home: React.FC = () => {
             )}
             {navers.map((naver) => {
               return (
-                <Styles.NaverCard key={naver.id} data-cy={naver.id}>
+                <Styles.NaverCard key={naver.id}>
                   <div>
                     <img src={naver.url} alt={naver.name} />
                   </div>
@@ -148,7 +148,7 @@ const Home: React.FC = () => {
                     <img
                       src={trashIcon}
                       alt="Excluir"
-                      data-cy="delete-card"
+                      data-cy={naver.id}
                       onClick={() =>
                         openModalAndSetCardId(
                           true,
